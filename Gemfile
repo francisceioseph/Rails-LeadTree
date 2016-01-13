@@ -21,6 +21,21 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Use Twitter Bootstrap
+gem 'twitter-bootstrap-rails'
+
+# Use Angular JS Gem
+gem 'angularjs-rails'
+
+# Use Font Awesome
+gem 'font-awesome-rails'
+
+# Use Phony Rails for phone numbers formatting
+gem 'phony_rails'
+
+# Use versionist for version management
+gem 'versionist'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
