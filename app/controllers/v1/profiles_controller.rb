@@ -1,6 +1,7 @@
 class V1::ProfilesController < V1::BaseController
   def create
     @profile = Profile.new profile_params
+    @profile.save
   end
 
   def update
