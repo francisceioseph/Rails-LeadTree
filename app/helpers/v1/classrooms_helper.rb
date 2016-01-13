@@ -1,4 +1,4 @@
-module ClassroomsHelper
+module V1::ClassroomsHelper
   def self.access_code
     code = generate_code
 
