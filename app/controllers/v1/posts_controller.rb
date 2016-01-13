@@ -14,7 +14,7 @@ class V1::PostsController < V1::BaseController
   end  
 
   def index
-    @posts = Post.where(classroom_id: classroom_params)
+    @posts = Post.where(classroom_id: classroom_id_params)
   end  
 
   def destroy
@@ -28,7 +28,7 @@ class V1::PostsController < V1::BaseController
     params.permit(:post).permit(:text)
   end
 
-  def classroom_params
+  def classroom_id_params
     params.require(:classroom_id)
   end
 end
