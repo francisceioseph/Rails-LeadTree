@@ -2,20 +2,20 @@ class V1::PostsController < V1::BaseController
   def create
     @post = Post.new post_params
     @post.save
-  end 
+  end
 
-  def update 
+  def update
     @post = Post.find id_params
     @post.update_attributes post_params
-  end  
+  end
 
-  def show 
+  def show
     @post = Post.find id_params
-  end  
+  end
 
   def index
     @posts = Post.where(classroom_id: classroom_id_params)
-  end  
+  end
 
   def destroy
     @post = Post.find id_params
