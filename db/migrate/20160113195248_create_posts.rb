@@ -4,6 +4,10 @@ class CreatePosts < ActiveRecord::Migration
       t.text :text
 
       t.timestamps null: false
+
+      t.belongs_to :classroom
     end
+
+    add_index :posts, :classroom_id
   end
 end

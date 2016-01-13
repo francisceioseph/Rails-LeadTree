@@ -1,8 +1,8 @@
 class V1::PostsController < V1::BaseController
-  def create  
+  def create
     @post = Post.new post_params
     @post.save
-  end  
+  end 
 
   def update 
     @post = Post.find id_params
