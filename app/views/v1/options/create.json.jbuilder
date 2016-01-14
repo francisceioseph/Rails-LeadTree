@@ -1,5 +1,6 @@
 json.option do
   if @option.errors.blank?
+    json.id    @option.id
     json.title @option.title
     json.text  @option.text
   end
