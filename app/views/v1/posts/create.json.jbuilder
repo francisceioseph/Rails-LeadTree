@@ -1,6 +1,7 @@
 if @post.errors.blank?
   json.post do
-    json.text @post.text
+    json.id    @post.id
+    json.text  @post.text
   end
 end
 

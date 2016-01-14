@@ -1,5 +1,6 @@
 json.question do
   if @question.errors.blank?
+    json.id   @question.id
     json.text @question.text
   end
   

@@ -29,4 +29,5 @@ options = Option.create([
 
 question.options = options
 question.exercise_list = list
+question.save
 

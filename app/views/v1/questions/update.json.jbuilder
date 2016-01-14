@@ -1,8 +1,9 @@
-if @classroom.errors.blank?
-  json.subject     @classroom.subject
-  json.access_code @classroom.access_code
-  json.description @classroom.description
+if @question.errors.blank?
+  json.id          @question.id
+  json.subject     @question.subject
+  json.access_code @question.access_code
+  json.description @question.description
 
 end
 
-json.errors   @classroom.errors.full_messages
+json.errors   @question.errors.full_messages
