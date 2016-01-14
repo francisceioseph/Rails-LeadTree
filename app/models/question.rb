@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
   has_many :options
+  has_many :question_answers
 
   belongs_to :exercise_list
 
