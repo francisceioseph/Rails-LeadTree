@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113201800) do
+ActiveRecord::Schema.define(version: 20160114220015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "awards", force: :cascade do |t|
+    t.string   "title"
+    t.text     "text"
+    t.string   "requisite"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "classrooms", force: :cascade do |t|
     t.string   "access_code"
@@ -32,6 +40,32 @@ ActiveRecord::Schema.define(version: 20160113201800) do
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+
+  create_table "exercise_answers", force: :cascade do |t|
+    t.datetime "submitted_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "exercise_list_id"
+  end
+
+  add_index "exercise_answers", ["exercise_list_id"], name: "index_exercise_answers_on_exercise_list_id", using: :btree
+
+  create_table "exercise_lists", force: :cascade do |t|
+    t.datetime "expires_at"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "question_id"
+  end
+
+  add_index "options", ["question_id"], name: "index_options_on_question_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.text     "text"
@@ -51,6 +85,27 @@ ActiveRecord::Schema.define(version: 20160113201800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "question_answers", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "exercise_answer_id"
+    t.integer  "question_id"
+    t.integer  "option_id"
+  end
+
+  add_index "question_answers", ["exercise_answer_id"], name: "index_question_answers_on_exercise_answer_id", using: :btree
+  add_index "question_answers", ["option_id"], name: "index_question_answers_on_option_id", using: :btree
+  add_index "question_answers", ["question_id"], name: "index_question_answers_on_question_id", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.text     "text"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "exercise_list_id"
+  end
+
+  add_index "questions", ["exercise_list_id"], name: "index_questions_on_exercise_list_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

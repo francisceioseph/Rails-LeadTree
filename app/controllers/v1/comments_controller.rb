@@ -1,6 +1,7 @@
 class V1::CommentsController < V1::BaseController
   def create
     @comment = Comment.new comment_params
+    @comment.save
   end
 
   def update
