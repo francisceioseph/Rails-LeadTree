@@ -1,5 +1,6 @@
 json.classroom do
   if @classroom.errors.blank?
+    json.id          @classroom.id
     json.subject     @classroom.subject
     json.access_code @classroom.access_code
     json.description @classroom.description
