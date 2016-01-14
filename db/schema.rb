@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114132604) do
+ActiveRecord::Schema.define(version: 20160114134436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20160114132604) do
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+
+  create_table "exercise_answers", force: :cascade do |t|
+    t.datetime "submitted_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "exercise_list_id"
+  end
+
+  add_index "exercise_answers", ["exercise_list_id"], name: "index_exercise_answers_on_exercise_list_id", using: :btree
 
   create_table "exercise_lists", force: :cascade do |t|
     t.datetime "expires_at"
