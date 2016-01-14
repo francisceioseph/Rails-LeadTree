@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   api_version(:module => "V1", :path => {:value => "v1"}, defaults: {:format => :json}, :default => true) do
+    resources :question_answers
     resources :exercise_answers
 
     resources :exercise_lists, only: [:create, :update, :show, :index] do
