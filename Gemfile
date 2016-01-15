@@ -7,7 +7,7 @@ gem 'rails', '4.2.4'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -20,15 +20,9 @@ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
-# Use Twitter Bootstrap
-gem 'twitter-bootstrap-rails'
-
-# Use Angular JS Gem
-gem 'angularjs-rails'
-
-# Use Font Awesome
-gem 'font-awesome-rails'
+# Use angular rails templates for partials for angular js
+gem 'angular-rails-templates'
+gem 'sprockets', '2.12.3'
 
 # Use Phony Rails for phone numbers formatting
 gem 'phony_rails'

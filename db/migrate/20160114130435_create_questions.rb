@@ -4,7 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.text :text
       t.timestamps null: false
 
-      t.belongs_to :exercise_list
+      t.belongs_to :exercise_lists
     end
 
   end

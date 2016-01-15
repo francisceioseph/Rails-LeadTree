@@ -5,7 +5,7 @@ class CreateExerciseAnswers < ActiveRecord::Migration
 
       t.timestamps null: false
 
-      t.belongs_to :exercise_list
+      t.belongs_to :exercise_lists
     end
 
     add_index :exercise_answers, :exercise_list_id
