@@ -25,6 +25,6 @@ class V1::ExerciseListsController < V1::BaseController
   protected
 
   def list_params
-    params.require(:exercise_list).permit(:title)
+    params.require(:exercise_lists).permit(:title)
   end
 end
