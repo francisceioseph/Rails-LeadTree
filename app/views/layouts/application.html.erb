@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>LeadTree</title>
-  <%= stylesheet_link_tag 'application', media: 'all'%>
-  <%= javascript_include_tag 'application'%>
-  <%= csrf_meta_tags %>
-</head>
+  <head>
+    <title>LeadTree</title>
+    <%= stylesheet_link_tag 'application', media: 'all'%>
+    <%= javascript_include_tag 'application'%>
+    <%= csrf_meta_tags %>
+  </head>
 
-<body ng-app="leadTree" class="hold-transition skin-blue sidebar-mini">
-  <div class="wrapper">
+  <body ng-app="leadTree" class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
 
-    <div ng-include="'generic/_left_aside.html'"></div>
-    <div ng-include="'generic/_nav.html'"></div>
+      <div ng-include="'generic/_left_aside.html'"></div>
+      <div ng-include="'top_nav/_top_nav.html'"></div>
 
-    <div class="content-wrapper">
-
-      <section class="content">
-        <ui-view></ui-view>
-      </section>
-
+      <div class="content-wrapper">
+        <section class="content">
+          <ui-view></ui-view>
+        </section>
+      </div>
     </div>
-
-  </div>
-
-</body>
+  </body>
 </html>
