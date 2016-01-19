@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119180727) do
+ActiveRecord::Schema.define(version: 20160119182319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20160119180727) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "teacher_id"
   end
+
+  add_index "classrooms", ["teacher_id"], name: "index_classrooms_on_teacher_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.text     "text"
@@ -82,9 +85,11 @@ ActiveRecord::Schema.define(version: 20160119180727) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "classroom_id"
+    t.integer  "teacher_id"
   end
 
   add_index "posts", ["classroom_id"], name: "index_posts_on_classroom_id", using: :btree
+  add_index "posts", ["teacher_id"], name: "index_posts_on_teacher_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
