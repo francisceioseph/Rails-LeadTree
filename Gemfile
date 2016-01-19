@@ -20,9 +20,13 @@ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
 # Use angular rails templates for partials for angular js
 gem 'angular-rails-templates'
 gem 'sprockets', '2.12.3'
+
+# Use devise for user authentication
+gem 'devise'
 
 # Use Phony Rails for phone numbers formatting
 gem 'phony_rails'

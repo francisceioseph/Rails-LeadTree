@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  devise_for :users
   root to: 'v1/home#index'
 
   api_version(:module => "V1", :path => {:value => "v1"}, defaults: {:format => :json}, :default => true) do
