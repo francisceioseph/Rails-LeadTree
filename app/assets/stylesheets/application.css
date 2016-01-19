@@ -11,6 +11,9 @@
  * file per style scope.
  *
  *= require bootstrap/dist/css/bootstrap
+ *= require font-awesome/css/font-awesome
+ *= require AdminLTE/dist/css/AdminLTE.css
+ *= require AdminLTE/dist/css/skins/_all-skins.css
  *= require_tree .
  *= require_self
  */

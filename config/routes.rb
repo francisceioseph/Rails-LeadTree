@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+
+  root to: 'v1/home#index'
+
   api_version(:module => "V1", :path => {:value => "v1"}, defaults: {:format => :json}, :default => true) do
+    resources :home, only: [:index]
     resources :awards
     resources :award_controller
     resources :question_answers

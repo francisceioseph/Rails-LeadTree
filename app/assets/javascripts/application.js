@@ -10,10 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require angular
+//= require angular-rails-templates
+//= require angular-ui-router
+//= require leadTree
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require angular
-//= require angular-ui-router
-//= require angular-rails-templates
+//= require bootstrap
+//= require AdminLTE/dist/js/app.js
 //= require_tree .
