@@ -4,6 +4,11 @@ class Classroom < ActiveRecord::Base
   has_many :exercise_lists
   has_many :awards
 
+  has_many :enrollments
+  has_many :students, through: :enrollments
+
+  belongs_to :teacher
+
   validates_length_of :access_code, minimum: 7
   validates_length_of :subject, minimum: 3
 
