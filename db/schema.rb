@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119175132) do
+ActiveRecord::Schema.define(version: 20160119183247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,32 +30,52 @@ ActiveRecord::Schema.define(version: 20160119175132) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "teacher_id"
   end
+
+  add_index "classrooms", ["teacher_id"], name: "index_classrooms_on_teacher_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "post_id"
+    t.integer  "user_id"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "enrollments", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "student_id"
+    t.integer  "classroom_id"
+  end
+
+  add_index "enrollments", ["classroom_id"], name: "index_enrollments_on_classroom_id", using: :btree
+  add_index "enrollments", ["student_id"], name: "index_enrollments_on_student_id", using: :btree
 
   create_table "exercise_answers", force: :cascade do |t|
     t.datetime "submitted_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "exercise_list_id"
+    t.integer  "student_id"
   end
 
   add_index "exercise_answers", ["exercise_list_id"], name: "index_exercise_answers_on_exercise_list_id", using: :btree
+  add_index "exercise_answers", ["student_id"], name: "index_exercise_answers_on_student_id", using: :btree
 
   create_table "exercise_lists", force: :cascade do |t|
     t.datetime "expires_at"
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "teacher_id"
   end
+
+  add_index "exercise_lists", ["teacher_id"], name: "index_exercise_lists_on_teacher_id", using: :btree
 
   create_table "options", force: :cascade do |t|
     t.string   "title"
@@ -72,9 +92,11 @@ ActiveRecord::Schema.define(version: 20160119175132) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "classroom_id"
+    t.integer  "teacher_id"
   end
 
   add_index "posts", ["classroom_id"], name: "index_posts_on_classroom_id", using: :btree
+  add_index "posts", ["teacher_id"], name: "index_posts_on_teacher_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"

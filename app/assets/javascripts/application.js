@@ -13,6 +13,7 @@
 //= require angular
 //= require angular-rails-templates
 //= require angular-ui-router
+//= require AngularDevise
 //= require leadTree
 //= require jquery
 //= require jquery_ujs
