@@ -3,12 +3,14 @@
  */
 
 angular.module('leadTree')
-    .controller('topNavCtrl', [
+    .controller('NavCtrl', [
+        '$rootScope'
         '$scope',
         'Auth',
-        function($scope, Auth){
-            $scope.signedIn = Auth.isAuthenticated;
-            $scope.logout   = Auth.logout;
+        function($scope, $rootScope, Auth){
+
+            $scope.signedIn = $rootScope.signedIn
+            $scope.logout   = $rootScope.logout
 
             Auth.currentUser().then(function (user){
                $scope.user = user;
@@ -16,6 +18,7 @@ angular.module('leadTree')
 
             $scope.$on('devise:new-registration', function (e, user){
                 $scope.user = user;
+                console.log('new-registration');
             });
 
             $scope.$on('devise:login', function (e, user){
