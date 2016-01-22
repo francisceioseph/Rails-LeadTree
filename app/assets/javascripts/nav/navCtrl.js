@@ -4,7 +4,7 @@
 
 angular.module('leadTree')
     .controller('NavCtrl', [
-        '$rootScope'
+        '$rootScope',
         '$scope',
         'Auth',
         function($scope, $rootScope, Auth){

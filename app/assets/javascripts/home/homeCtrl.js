@@ -9,5 +9,7 @@ angular.module('leadTree')
         function($scope) {
             $scope.title = 'LeadTree'
             $scope.subtitle = 'Integrate, Collaborate and Grow Up!'
+
+            console.log($scope.user)
         }
     ]);
