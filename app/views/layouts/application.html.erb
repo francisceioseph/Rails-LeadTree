@@ -8,17 +8,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body ng-app="leadTree" class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
-
-      <div ng-include="'generic/_left_aside.html'"></div>
-      <div ng-include="'nav/_nav.html'"></div>
-
-      <div class="content-wrapper">
-        <section class="content">
-          <ui-view></ui-view>
-        </section>
-      </div>
-    </div>
+  <body ng-app="leadTree" class="{{bodyClass}}">
+    <ui-view></ui-view>
   </body>
 </html>
